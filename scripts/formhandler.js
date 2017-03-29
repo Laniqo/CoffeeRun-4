@@ -4,6 +4,7 @@
     var App = window.App || {};
     var $ = window.jQuery;
     var i;
+    var exists = { val: false}
 
     function FormHandler(selector) {
         if (!selector) {
@@ -40,15 +41,21 @@
         });
     }
 
-    FormHandler.prototype.addInputHandler = function(fn) {
-        console.log('Setting input handler for form');
+    FormHandler.prototype.addInputHandler = function(fn, exists, obj) {
+        //console.log('Setting input handler for form');
         this.$formElement.on('input', '[name="emailAddress"]', function(event) {
             var emailAddress = event.target.value;
-
+            var x;
             var message = '';
+            var res;
+
+            //if function is valid sample@csu.student
             if (fn(emailAddress)) {
-                event.target.setCustomValidity('');
-            } else {
+                //event.target.setCustomValidity('');
+                obj.getAll(exists);
+
+            }
+            else {
                 message = emailAddress + ' is not an authorized email address!';
                 event.target.setCustomValidity(message);
             }
@@ -61,16 +68,9 @@
         var msg = '';
         var val;
 
-
-
-
         //coffee order handler
         this.$formElement.on('input change', '[name="coffee"]', function(event) {
             order = event.target.value;
-            //val = $('#strengthLevel').val();
-
-            console.log(order);
-            console.log(val);
 
             if (fn(order, val)) {
                 msg = 'Cannot have an order of ' + order + ' with strength ' + val;
@@ -104,6 +104,8 @@
 
         });
     }
+
+
 
     App.FormHandler = FormHandler;
     window.App = App;
