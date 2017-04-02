@@ -26,12 +26,20 @@
     checkList.addClickHandler(myTruck.deliverOrder.bind(myTruck));
 
     formHandler.addSubmitHandler(function(data) {
-        myTruck.createOrder.call(myTruck, data);
+        return myTruck.createOrder.call(myTruck, data).then(function(){
         checkList.addRow.call(checkList, data);
+      }, function(){
+          alert('Server unreachable. Try again later');
+      });
     });
 
     formHandler.addInputHandler(Validation.isCompanyEmail, Validation.ifEmailExists, remoteDS);
     formHandler.coffeeOrderHandler(Validation.decafValidation);
     formHandler.coffeeRangeHandler();
+
+    myTruck.printOrders(checkList.addRow.bind(checkList));
+
+    //webshim.polyfill('forms forms-ext');
+    //webshim.setOptions('forms', { addValidators: true, lazyCustomMessages: true });
 
 })(window);
