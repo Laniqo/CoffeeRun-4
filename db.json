@@ -7,6 +7,38 @@
       "flavor": "",
       "strength": "30",
       "id": "test@bignerdranch.com"
+    },
+    {
+      "coffee": "new order",
+      "emailAddress": "e@csu.student",
+      "size": "grande",
+      "flavor": "",
+      "strength": "30",
+      "id": "B1GsUZGTg"
+    },
+    {
+      "coffee": "rarr",
+      "emailAddress": "r@csu.student",
+      "size": "bomb",
+      "flavor": "almond",
+      "strength": "30",
+      "id": "B1E5c-Mal"
+    },
+    {
+      "coffee": "rar",
+      "emailAddress": "e@csu.student",
+      "size": "bomb",
+      "flavor": "",
+      "strength": "3",
+      "id": "rJ5y3WMpg"
+    },
+    {
+      "coffee": "good stuff",
+      "emailAddress": "g@csu.student",
+      "size": "grande",
+      "flavor": "caramel",
+      "strength": "8",
+      "id": "Hye-3bGae"
     }
   ]
 }
