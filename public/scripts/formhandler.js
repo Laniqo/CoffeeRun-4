@@ -4,7 +4,9 @@
     var App = window.App || {};
     var $ = window.jQuery;
     var i;
-    var exists = { val: false}
+    var exists = {
+        val: false
+    }
 
     function FormHandler(selector) {
         if (!selector) {
@@ -32,9 +34,9 @@
 
             console.log(data);
 
-            fn(data).then(function(){
-              this.reset();
-              this.elements[0].focus();
+            fn(data).then(function() {
+                this.reset();
+                this.elements[0].focus();
             }.bind(this));
         });
     }
@@ -52,8 +54,7 @@
                 //event.target.setCustomValidity('');
                 obj.getAll(exists);
 
-            }
-            else {
+            } else {
                 message = emailAddress + ' is not an authorized email address!';
                 event.target.setCustomValidity(message);
             }

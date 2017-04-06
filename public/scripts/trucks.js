@@ -33,18 +33,18 @@
     //forEach loop and pass it to the showOrder() function
     //which is already tested as working properly
     Truck.prototype.printOrders = function(printFn) {
-      return this.db.getAll().then(function(orders){
-        var customerIdArray = Object.keys(orders);
+        return this.db.getAll().then(function(orders) {
+            var customerIdArray = Object.keys(orders);
 
-        console.log('Truck #' + this.truckId + ' has pending orders:');
-        customerIdArray.forEach(function(id, index, arr) {
-            console.log(orders[id]);
-            if(printFn){
-              printFn(orders[id]);
-            }
+            console.log('Truck #' + this.truckId + ' has pending orders:');
+            customerIdArray.forEach(function(id, index, arr) {
+                console.log(orders[id]);
+                if (printFn) {
+                    printFn(orders[id]);
+                }
 
+            }.bind(this));
         }.bind(this));
-      }.bind(this));
         var newArr = Object.values(this.db.getAll());
         return newArr;
     };

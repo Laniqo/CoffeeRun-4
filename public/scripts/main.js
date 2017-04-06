@@ -1,6 +1,6 @@
 //To recieve the window object for use inside the function body and retrieves
 //the constructors you defines as part of the window.App namespace
-(function(window){
+(function(window) {
     'use strict';
     var FORM_SELECTOR = '[data-coffee-order="form"]';
     var CHECKLIST_SELECTOR = '[data-coffee-order="checklist"]';
@@ -27,11 +27,11 @@
     checkList.addClickHandler(myTruck.deliverOrder.bind(myTruck));
 
     formHandler.addSubmitHandler(function(data) {
-        return myTruck.createOrder.call(myTruck, data).then(function(){
-        checkList.addRow.call(checkList, data);
-      }, function(){
-          alert('Server unreachable. Try again later');
-      });
+        return myTruck.createOrder.call(myTruck, data).then(function() {
+            checkList.addRow.call(checkList, data);
+        }, function() {
+            alert('Server unreachable. Try again later');
+        });
     });
 
     formHandler.addInputHandler(Validation.isCompanyEmail, Validation.ifEmailExists, remoteDS);

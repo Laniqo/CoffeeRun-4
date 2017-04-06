@@ -13,23 +13,23 @@
     }
 
     function promiseResolvedWith(value) {
-    var promise = new Promise(function (resolve, reject) {
-        resolve(value);
-      });
-    return promise;
+        var promise = new Promise(function(resolve, reject) {
+            resolve(value);
+        });
+        return promise;
     }
 
     DataStore.prototype.add = function(key, val) {
-      /*
-        var promise = new Promise(function(resolve, reject){
-          this.data[key] = val;
-          resolve(null);
-        }.bind(this));
+        /*
+          var promise = new Promise(function(resolve, reject){
+            this.data[key] = val;
+            resolve(null);
+          }.bind(this));
 
-        return promise;
-        */
+          return promise;
+          */
 
-      return promiseResolvedWith(null);
+        return promiseResolvedWith(null);
     };
 
     DataStore.prototype.get = function(key) {

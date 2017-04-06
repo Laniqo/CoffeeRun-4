@@ -20,8 +20,8 @@
         this.$element.on('click', 'input', function(event) {
             var email = event.target.value;
 
-            fn(email).then(function(){
-              this.removeRow(email);
+            fn(email).then(function() {
+                this.removeRow(email);
             }.bind(this));
         }.bind(this));
     };
